@@ -123,7 +123,7 @@ public class Extractor {
 
                     for (int r = 0; r < refDoc.sentences.length; r++) {
                         String refSen = refDoc.sentences[r];
-                        float refRegion = ((float)r)/refDoc.sentences.length;
+                        float refRegion = ((float) r) / refDoc.sentences.length;
                         if (!sen2Id.containsKey(refSen)) {
                             sen2Id.put(refSen, sen2Id.size());
                             Id2Sen.add(refSen);
@@ -131,8 +131,10 @@ public class Extractor {
                         int refSenID = sen2Id.get(refSen);
                         int refLen = refSen.split(" ").length;
 
-                        int doc_start_range =(int) Math.floor(Math.max(0, refRegion - 0.1) *  doc.sentences.length);
-                        int doc_end_range =(int) Math.ceil(Math.min(1, refRegion + 0.1) *  doc.sentences.length);
+                        int doc_start_range = (int) Math.floor(Math.max(0, refRegion - 0.1) * doc.sentences.length);
+                        int doc_end_range = 1; // Title by title alignment
+                        if (r > 0)
+                            doc_end_range = (int) Math.ceil(Math.min(1, refRegion + 0.1) * doc.sentences.length);
 
                         for (int s = doc_start_range; s < doc_end_range; s++) {
                             String sen = doc.sentences[s];
