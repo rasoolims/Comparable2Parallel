@@ -114,7 +114,10 @@ public class Extractor {
                         }
                     }
                 }
+                System.out.print("Building sentence alignments: " + refDocId + 1 + "/" + docAlignment.size() + " --> " + alignments.size() + "\r");
             }
+            System.out.print("\n");
+
             int alignDicSize = 0;
             for (int caption : alignments.keySet())
                 alignDicSize += alignments.get(caption).size();
