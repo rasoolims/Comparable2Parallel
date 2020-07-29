@@ -2,7 +2,9 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -80,6 +82,10 @@ public class Extractor {
             System.out.println("->" + docAlignment.size());
             HashMap<Integer, HashSet<Integer>> alignments = new HashMap<>();
             HashMap<String, Integer> sen2Id = new HashMap<>();
+            ArrayList<String> Id2Sen = new ArrayList<>();
+            int alignDicSize = 0;
+            BufferedWriter writer1 = new BufferedWriter(new FileWriter(args[2]));
+            BufferedWriter writer2 = new BufferedWriter(new FileWriter(args[3]));
 
             for (int refDocId : docAlignment.keySet()) {
                 WikiDoc refDoc = refWikiDocs.get(refDocId);
@@ -93,24 +99,35 @@ public class Extractor {
 
                     for (String path : sharedImagePaths) {
                         String refCaption = refDoc.caption(path);
-                        if (!sen2Id.containsKey(refCaption))
+                        if (!sen2Id.containsKey(refCaption)) {
                             sen2Id.put(refCaption, sen2Id.size());
+                            Id2Sen.add(refCaption);
+                        }
                         int refCaptionID = sen2Id.get(refCaption);
                         if (!alignments.containsKey(refCaptionID))
                             alignments.put(refCaptionID, new HashSet<>());
                         String caption = doc.caption(path);
-                        if (!sen2Id.containsKey(caption))
+                        if (!sen2Id.containsKey(caption)) {
                             sen2Id.put(caption, sen2Id.size());
+                            Id2Sen.add(caption);
+                        }
                         int captionID = sen2Id.get(caption);
 
-                        alignments.get(refCaptionID).add(captionID);
+                        if (!alignments.get(refCaptionID).contains(captionID)) {
+                            alignments.get(refCaptionID).add(captionID);
+                            writer1.write(refCaption + "\n");
+                            writer2.write(caption + "\n");
+                            alignDicSize++;
+                        }
                     }
 
                     for (int r = 0; r < refDoc.sentences.length; r++) {
                         String refSen = refDoc.sentences[r];
                         float refRegion = ((float)r)/refDoc.sentences.length;
-                        if (!sen2Id.containsKey(refSen))
+                        if (!sen2Id.containsKey(refSen)) {
                             sen2Id.put(refSen, sen2Id.size());
+                            Id2Sen.add(refSen);
+                        }
                         int refSenID = sen2Id.get(refSen);
                         int refLen = refSen.split(" ").length;
 
@@ -119,8 +136,10 @@ public class Extractor {
 
                         for (int s = doc_start_range; s < doc_end_range; s++) {
                             String sen = doc.sentences[s];
-                            if (!sen2Id.containsKey(sen))
+                            if (!sen2Id.containsKey(sen)) {
                                 sen2Id.put(sen, sen2Id.size());
+                                Id2Sen.add(sen);
+                            }
                             int senID = sen2Id.get(sen);
 
                             int senLen = sen.split(" ").length;
@@ -128,18 +147,21 @@ public class Extractor {
                             if (Math.abs(refLen - senLen) <= 3 || (0.9 <= proportion && proportion <= 1.1)) {
                                 if (!alignments.containsKey(refSenID))
                                     alignments.put(refSenID, new HashSet<>());
-                                alignments.get(refSenID).add(senID);
+                                if (!alignments.get(refSenID).contains(senID)) {
+                                    alignments.get(refSenID).add(senID);
+                                    writer1.write(refSen + "\n");
+                                    writer2.write(sen + "\n");
+                                    alignDicSize++;
+                                }
                             }
                         }
                     }
                 }
-                System.out.print("Building sentence alignments: " + (refDocId + 1) + "/" + docAlignment.size() + " --> " + alignments.size() + "\r");
+                System.out.print("Building sentence alignments: " + (refDocId + 1) + "/" + docAlignment.size() + " --> " + alignments.size() + " ** " + alignDicSize + "\r");
             }
             System.out.print("\n");
-
-            int alignDicSize = 0;
-            for (int caption : alignments.keySet())
-                alignDicSize += alignments.get(caption).size();
+            writer1.close();
+            writer2.close();
 
             System.out.println(alignments.size() + " " + alignDicSize);
         } catch (Exception e) {
