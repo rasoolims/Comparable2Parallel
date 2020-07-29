@@ -49,6 +49,7 @@ public class Extractor {
                 }
                 wikiDocs.add(doc);
             }
+
             ArrayList<WikiDoc> refWikiDocs = new ArrayList<>();
             HashMap<String, HashSet<Integer>> refImagePathMap = new HashMap<>();
             for (int i = 0; i < refJsons.size(); i++) {
@@ -121,7 +122,7 @@ public class Extractor {
                         }
                     }
                 }
-                System.out.print("Building sentence alignments: " + refDocId + 1 + "/" + docAlignment.size() + " --> " + alignments.size() + "\r");
+                System.out.print("Building sentence alignments: " + (refDocId + 1) + "/" + docAlignment.size() + " --> " + alignments.size() + "\r");
             }
             System.out.print("\n");
 
