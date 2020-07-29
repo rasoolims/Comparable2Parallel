@@ -29,8 +29,9 @@ public class Extractor {
             HashMap<Integer, HashSet<Integer>> docAlignment = new HashMap<>();
 
             JSONArray jsons = (JSONArray) parser.parse(new FileReader(args[0]));
+            System.out.println("Loaded first file "+ jsons.size());
             JSONArray refJsons = (JSONArray) parser.parse(new FileReader(args[1]));
-            System.out.println(jsons.size() + " " + refJsons.size());
+            System.out.println("Loaded second file "+  + refJsons.size());
 
             ArrayList<WikiDoc> wikiDocs = new ArrayList<>();
             HashMap<String, HashSet<Integer>> imagePathMap = new HashMap<>();
