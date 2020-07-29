@@ -29,6 +29,9 @@ public class Extractor {
             HashMap<Integer, HashSet<Integer>> docAlignment = new HashMap<>();
 
             JSONArray jsons = (JSONArray) parser.parse(new FileReader(args[0]));
+            JSONArray refJsons = (JSONArray) parser.parse(new FileReader(args[1]));
+            System.out.println(jsons.size() + " " + refJsons.size());
+
             ArrayList<WikiDoc> wikiDocs = new ArrayList<>();
             HashMap<String, HashSet<Integer>> imagePathMap = new HashMap<>();
             for (int i = 0; i < jsons.size(); i++) {
@@ -41,7 +44,6 @@ public class Extractor {
                 }
                 wikiDocs.add(doc);
             }
-            JSONArray refJsons = (JSONArray) parser.parse(new FileReader(args[1]));
             ArrayList<WikiDoc> refWikiDocs = new ArrayList<>();
             HashMap<String, HashSet<Integer>> refImagePathMap = new HashMap<>();
             for (int i = 0; i < refJsons.size(); i++) {
