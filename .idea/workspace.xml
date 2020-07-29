@@ -6,7 +6,13 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99e297a9-f5b8-4197-8485-7bc542ed705a" name="Default Changelist" comment="" />
+    <list default="true" id="99e297a9-f5b8-4197-8485-7bc542ed705a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Comparable2Parallel.jar" beforeDir="false" afterPath="$PROJECT_DIR$/Comparable2Parallel.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Comparable2Parallel/Extractor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Comparable2Parallel/Extractor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Extractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Extractor.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,7 +25,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1fMoFBxYzBjcl24T6Ro9RwoKSvY" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -27,6 +37,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -80,22 +91,22 @@
       <screen x="0" y="23" width="2560" height="1294" />
     </state>
     <state width="661" height="816" key="DebuggerActiveHint/2560.23.1792.1097/0.23.2560.1294@0.23.2560.1294" timestamp="1596040447397" />
-    <state width="2486" height="328" key="GridCell.Tab.0.bottom" timestamp="1596041052146">
+    <state width="2486" height="328" key="GridCell.Tab.0.bottom" timestamp="1596041374885">
       <screen x="0" y="23" width="2560" height="1294" />
     </state>
-    <state width="2486" height="328" key="GridCell.Tab.0.bottom/2560.23.1792.1097/0.23.2560.1294@0.23.2560.1294" timestamp="1596041052146" />
-    <state width="2486" height="328" key="GridCell.Tab.0.center" timestamp="1596041052145">
+    <state width="2486" height="328" key="GridCell.Tab.0.bottom/2560.23.1792.1097/0.23.2560.1294@0.23.2560.1294" timestamp="1596041374885" />
+    <state width="2486" height="328" key="GridCell.Tab.0.center" timestamp="1596041374884">
       <screen x="0" y="23" width="2560" height="1294" />
     </state>
-    <state width="2486" height="328" key="GridCell.Tab.0.center/2560.23.1792.1097/0.23.2560.1294@0.23.2560.1294" timestamp="1596041052145" />
-    <state width="2486" height="328" key="GridCell.Tab.0.left" timestamp="1596041052145">
+    <state width="2486" height="328" key="GridCell.Tab.0.center/2560.23.1792.1097/0.23.2560.1294@0.23.2560.1294" timestamp="1596041374884" />
+    <state width="2486" height="328" key="GridCell.Tab.0.left" timestamp="1596041374883">
       <screen x="0" y="23" width="2560" height="1294" />
     </state>
-    <state width="2486" height="328" key="GridCell.Tab.0.left/2560.23.1792.1097/0.23.2560.1294@0.23.2560.1294" timestamp="1596041052145" />
-    <state width="2486" height="328" key="GridCell.Tab.0.right" timestamp="1596041052145">
+    <state width="2486" height="328" key="GridCell.Tab.0.left/2560.23.1792.1097/0.23.2560.1294@0.23.2560.1294" timestamp="1596041374883" />
+    <state width="2486" height="328" key="GridCell.Tab.0.right" timestamp="1596041374884">
       <screen x="0" y="23" width="2560" height="1294" />
     </state>
-    <state width="2486" height="328" key="GridCell.Tab.0.right/2560.23.1792.1097/0.23.2560.1294@0.23.2560.1294" timestamp="1596041052145" />
+    <state width="2486" height="328" key="GridCell.Tab.0.right/2560.23.1792.1097/0.23.2560.1294@0.23.2560.1294" timestamp="1596041374884" />
     <state width="2486" height="409" key="GridCell.Tab.1.bottom" timestamp="1596040450458">
       <screen x="0" y="23" width="2560" height="1294" />
     </state>
@@ -130,7 +141,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Extractor.java</url>
-          <line>121</line>
+          <line>124</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
