@@ -1,8 +1,12 @@
-import java.io.*;
-import java.util.*;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
-import org.json.simple.*;
-import org.json.simple.parser.*;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Extractor {
     public static WikiDoc getContent(JSONObject obj) {
@@ -29,9 +33,9 @@ public class Extractor {
             HashMap<Integer, HashSet<Integer>> docAlignment = new HashMap<>();
 
             JSONArray jsons = (JSONArray) parser.parse(new FileReader(args[0]));
-            System.out.println("Loaded first file "+ jsons.size());
+            System.out.println("Loaded first file " + jsons.size());
             JSONArray refJsons = (JSONArray) parser.parse(new FileReader(args[1]));
-            System.out.println("Loaded second file "+  + refJsons.size());
+            System.out.println("Loaded second file " + +refJsons.size());
 
             ArrayList<WikiDoc> wikiDocs = new ArrayList<>();
             HashMap<String, HashSet<Integer>> imagePathMap = new HashMap<>();
