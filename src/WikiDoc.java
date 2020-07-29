@@ -10,7 +10,9 @@ public class WikiDoc {
         this.sentences = sentences;
         captionDict = new HashMap<>();
         for (int i=0; i<imagePaths.size(); i++){
-            captionDict.put(imagePaths.get(i), captions.get(i));
+            String caption = captions.get(i);
+            caption = caption.substring(caption.indexOf(">")+1 , caption.lastIndexOf("<")).trim();
+            captionDict.put(imagePaths.get(i), caption);
         }
     }
 
