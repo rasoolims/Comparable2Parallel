@@ -106,12 +106,19 @@ public class Extractor {
                         alignments.get(refCaptionID).add(captionID);
                     }
 
-                    for (String refSen : refDoc.sentences) {
+                    for (int r = 0; r < refDoc.sentences.length; r++) {
+                        String refSen = refDoc.sentences[r];
+                        float refRegion = ((float)r)/refDoc.sentences.length;
                         if (!sen2Id.containsKey(refSen))
                             sen2Id.put(refSen, sen2Id.size());
                         int refSenID = sen2Id.get(refSen);
                         int refLen = refSen.split(" ").length;
-                        for (String sen : doc.sentences) {
+
+                        int doc_start_range =(int) Math.floor(Math.max(0, refRegion - 0.2) *  doc.sentences.length);
+                        int doc_end_range =(int) Math.ceil(Math.min(1, refRegion + 0.2) *  doc.sentences.length);
+
+                        for (int s = doc_start_range; s < doc_end_range; s++) {
+                            String sen = doc.sentences[s];
                             if (!sen2Id.containsKey(sen))
                                 sen2Id.put(sen, sen2Id.size());
                             int senID = sen2Id.get(sen);
