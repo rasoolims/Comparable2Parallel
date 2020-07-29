@@ -2,3 +2,5 @@
 *.xml
 *.iml
 *.class
+json-simple-1.1.jar
+META-INF/MANIFEST.MF
