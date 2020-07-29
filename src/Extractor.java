@@ -49,6 +49,8 @@ public class Extractor {
                 }
                 wikiDocs.add(doc);
             }
+            jsons = null;
+            System.gc();
 
             ArrayList<WikiDoc> refWikiDocs = new ArrayList<>();
             HashMap<String, HashSet<Integer>> refImagePathMap = new HashMap<>();
@@ -73,7 +75,9 @@ public class Extractor {
                 if (hasImage)
                     refWikiDocs.add(doc);
             }
-            System.out.println(jsons.size() + " " + refJsons.size() + "->" + docAlignment.size());
+            jsons = null;
+            System.gc();
+            System.out.println("->" + docAlignment.size());
             HashMap<Integer, HashSet<Integer>> alignments = new HashMap<>();
             HashMap<String, Integer> sen2Id = new HashMap<>();
 
